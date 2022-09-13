@@ -1,7 +1,7 @@
-package org.firstinspires.ftc.teamcode.Mecanum_2.Autonomous;
+package org.firstinspires.ftc.teamcode.V1.Opmodes.Tests.OpModes.Tests;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import org.firstinspires.ftc.teamcode.Mecanum_2.Base;
+import org.firstinspires.ftc.teamcode.V1.Base;
 import org.firstinspires.ftc.teamcode.Utils.Point;
 import java.util.ArrayList;
 import java.util.Arrays;
