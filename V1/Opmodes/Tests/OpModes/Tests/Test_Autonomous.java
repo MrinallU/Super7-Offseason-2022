@@ -6,7 +6,7 @@ import org.firstinspires.ftc.teamcode.Utils.Point;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-@Autonomous(name = "Test_Autonomous", group = "OdomBot")
+@Autonomous(name = "Test_Autonomous", group = "Tests")
 public class Test_Autonomous extends Base {
 
   @Override

@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.V1.Modules.Camera.Tests;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
@@ -9,8 +10,9 @@ import org.firstinspires.ftc.teamcode.V1.Modules.Camera.Pipelines.Helpers.Vision
 import java.util.ArrayList;
 import java.util.Collections;
 
+@Disabled
 @TeleOp(name = "Ecov", group = "robot")
-public class Test_Camera extends LinearOpMode {
+public class FloodFillObjectDetection extends LinearOpMode {
 
     @Override
     public void runOpMode() throws InterruptedException {

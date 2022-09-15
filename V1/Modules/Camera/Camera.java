@@ -50,7 +50,7 @@ public class Camera {
         p2 = new auto_floodfill_detection(true, webcam);
     }
 
-
+    public String getSignalColor(){p1.getOut();}
     public void switchToFFPipleine() {
         webcam.setPipeline(p2);
     }

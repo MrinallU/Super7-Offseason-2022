@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.V1.Base;
 
-@TeleOp(name = "Test_TeleOp", group = "OdomBot")
+@TeleOp(name = "Test_TeleOp", group = "Tests")
 public class Test_TeleOp extends Base {
 
   // TeleOp Variables
