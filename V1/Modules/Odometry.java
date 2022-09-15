@@ -6,14 +6,12 @@ import org.firstinspires.ftc.teamcode.Utils.Point;
 public class Odometry {
   // Constants
   public final double WHEEL_DIAMETER = 4;
-  public final double INTER_WHEEL_WIDTH = 16;
-  public final double INTER_WHEEL_LENGTH = 14;
   public final double TICKS_PER_DRIVE_ROTATION = 1120;
   public final double TICKS_PER_ENCODER_ROTATION = 1120;
   public final double ENCODER_WHEEL_DIAMETER = 2;
   private final double ENCODER_TICKS_PER_REVOLUTION = 1120;
   private final double ENCODER_WHEEL_CIRCUMFERENCE = Math.PI * 2.0 * (ENCODER_WHEEL_DIAMETER * 0.5);
-  private final double ENCODER_WIDTH = 12.0;
+  private final double ENCODER_WIDTH = 12.0; // DISTANCE BETWEEN FRONT FACING ENCODER WHEELS IN INCHES
 
   private boolean verbose = false;
   public String outStr = "";
