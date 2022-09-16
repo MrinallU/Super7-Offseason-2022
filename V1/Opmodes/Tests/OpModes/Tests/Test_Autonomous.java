@@ -67,9 +67,9 @@ public class Test_Autonomous extends Base {
       // Drive
       slowDrive = gamepad1.left_bumper;
       fastDrive = gamepad1.left_trigger > 0.05;
-      drive = floor(-gamepad1.right_stick_x) * multiplier;
-      strafe = floor(gamepad1.right_stick_y) * multiplier;
-      turn = turnFloor(gamepad1.left_stick_x) * multiplier;
+      drive = floor(-gamepad1.right_stick_x);
+      strafe = floor(gamepad1.right_stick_y);
+      turn = turnFloor(gamepad1.left_stick_x) ;
       computeDrivePowers(gamepad1);
 
       // Display Values

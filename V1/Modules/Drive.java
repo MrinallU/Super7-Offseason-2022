@@ -11,6 +11,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
+import org.firstinspires.ftc.robotcore.external.navigation.VoltageUnit;
 import org.firstinspires.ftc.teamcode.V1.Base;
 import org.firstinspires.ftc.teamcode.Utils.PathGenerator;
 import org.firstinspires.ftc.teamcode.Utils.Angle;
@@ -59,8 +60,7 @@ public class Drive extends Base {
 
   // Kinda Like:
   // https://www.ri.cmu.edu/pub_files/pub3/coulter_r_craig_1992_1/coulter_r_craig_1992_1.pdf
-  // Helpful explanation:
-  // https://www.chiefdelphi.com/t/paper-implementation-of-the-adaptive-pure-pursuit-controller/166552
+  // ask me if you need help understanding it
   public void traversePath(
           ArrayList<Point> wp,
           double heading,
@@ -247,7 +247,6 @@ public class Drive extends Base {
   // Driving
   public void driveFieldCentric(double baseAngle, double drive, double turn, double strafe) {
     // Math for Field Centric 2.0:
-    // https://github.com/FTCLib/FTCLib/blob/master/core/src/main/java/com/arcrobotics/ftclib/drivebase/MecanumDrive.java
     double fRightPow, bRightPow, fLeftPow, bLeftPow;
 
     double bLeftAngle = Math.toRadians(baseAngle + 135);
@@ -271,8 +270,30 @@ public class Drive extends Base {
     setDrivePowers(bLeftPow, fLeftPow, bRightPow, fRightPow);
   }
 
+  public void driveFieldCentric2(double baseAngle, double drive, double turn, double strafe) {
+    // https://gm0.org/en/latest/docs/software/tutorials/mecanum-drive.html#field-centric
+    double fRightPow, bRightPow, fLeftPow, bLeftPow;
+
+    // rotating a vector by an angle theta
+    double rotX = drive * Math.cos(baseAngle) - strafe * Math.sin(baseAngle);
+    double rotY = drive * Math.sin(baseAngle) + strafe * Math.cos(baseAngle);
+
+     fLeftPow = rotY + rotX + turn;
+     bLeftPow = rotY - rotX + turn;
+     fRightPow = rotY - rotX - turn;
+     bRightPow = rotY + rotX - turn;
+
+    double[] calculatedPower = scalePowers(bLeftPow, fLeftPow, bRightPow, fRightPow);
+    fLeftPow = calculatedPower[0];
+    bLeftPow = calculatedPower[1];
+    fRightPow = calculatedPower[2];
+    bRightPow = calculatedPower[3];
+
+    setDrivePowers(bLeftPow, fLeftPow, bRightPow, fRightPow);
+  }
+
   public void driveRobotCentric(double drive, double turn, double strafe) {
-    // GM0
+    // https://gm0.org/en/latest/docs/software/tutorials/mecanum-drive.html#robot-centric-final-sample-code
     double fRightPow = 0, bRightPow = 0, fLeftPow = 0, bLeftPow = 0;
 
     fLeftPow = -drive + turn - strafe;
@@ -332,14 +353,14 @@ public class Drive extends Base {
     }
   }
 
-  //    private double getVoltage() {
-  //        double voltage = Double.MIN_VALUE;
-  //        for (LynxModule hub : allHubs) {
-  //            voltage = Math.max(voltage, hub.getInputVoltage(VoltageUnit.VOLTS));
-  //        }
-  //
-  //        return voltage;
-  //    }
+      private double getVoltage() {
+          double voltage = Double.MIN_VALUE;
+          for (LynxModule hub : allHubs) {
+              voltage = Math.max(voltage, hub.getInputVoltage(VoltageUnit.VOLTS));
+          }
+
+          return voltage;
+      }
 
   @Override
   public void runOpMode() throws InterruptedException {}

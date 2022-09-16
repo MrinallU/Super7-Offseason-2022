@@ -15,19 +15,19 @@ import org.openftc.easyopencv.PipelineRecordingParameters;
 import java.util.ArrayList;
 import java.util.Stack;
 
-// todo Linear regression for distance based on cluster size + linear regression for x and y
-// distance
+// Use Linear regression for distance based on cluster size + linear regression for x and y
 public class auto_floodfill_detection extends OpenCvPipeline {
+    // CV parameters
     Telemetry telemetry;
     public Scalar lower = new Scalar(0, 136, 85);
     public Scalar upper = new Scalar(255, 255, 255);
     public Mat img;
     private Mat hsvMat = new Mat();
     private Mat binaryMat = new Mat();
-    private Mat maskedInputMat = new Mat();
     private boolean saveImg = false;
     private OpenCvCamera camera;
 
+    // Floodfill parameters
     public ArrayList<VisionObject> objs = new ArrayList<>();
     private static Mat grid; // the grid itself
     private static int rowNum;
@@ -57,8 +57,6 @@ public class auto_floodfill_detection extends OpenCvPipeline {
         //objs = new ArrayList<>();
         Imgproc.cvtColor(input, hsvMat, Imgproc.COLOR_RGB2HSV);
         Core.inRange(hsvMat, lower, upper, binaryMat);
-        maskedInputMat.release();
-        Core.bitwise_and(input, input, maskedInputMat, binaryMat);
         grid = binaryMat;
 
         //objs = new ArrayList<>();

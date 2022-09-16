@@ -11,7 +11,7 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
 
 public class rectangle_thresholder_pipeline extends OpenCvPipeline {
 
-    private String out;
+    private String out; private boolean saveImg = false;
     public Scalar lowerRed = new Scalar(0, 0, 0);
     public Scalar upperRed = new Scalar(255, 255, 255);
 
@@ -21,10 +21,7 @@ public class rectangle_thresholder_pipeline extends OpenCvPipeline {
     public Scalar lowerGreen = new Scalar(0, 0, 0);
     public Scalar upperGreen = new Scalar(255, 255, 255);
 
-    private boolean saveImg = false;
-    private Mat hsvMat = new Mat();
-    private Mat maskedInputMat = new Mat();
-    private Mat binaryMat = new Mat();
+    private Mat hsvMat = new Mat(), binaryMat = new Mat();
     private Point topLeft1 = new Point(10, 0), bottomRight1 = new Point(40, 20); // Analyzed area is constant
 
   /*public rectangle_thresholder_pipeline(Telemetry telemetry) {
@@ -44,7 +41,6 @@ public class rectangle_thresholder_pipeline extends OpenCvPipeline {
     public double thresholdColor(Mat input, Scalar lower, Scalar upper){
         Imgproc.cvtColor(input, hsvMat, Imgproc.COLOR_RGB2HSV);
         Core.inRange(hsvMat, lower, upper, binaryMat);
-        Core.bitwise_and(input, input, maskedInputMat, binaryMat);
 
         double w1 = 0, w2 = 0;
         // process the pixel value for each rectangle  (255 = W, 0 = B)
@@ -78,7 +74,6 @@ public class rectangle_thresholder_pipeline extends OpenCvPipeline {
         if (saveImg) {
             // saveMatToDisk(input, "rect_manual_img");
             saveImg = false;
-            //saveMatToDisk(input, "rect_manual_img");
         }
 
         return binaryMat;
