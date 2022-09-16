@@ -1,13 +1,12 @@
 package org.firstinspires.ftc.teamcode.V1.Opmodes.Tests.OpModes.Autonomous;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import org.firstinspires.ftc.teamcode.Mecanum_2.Base;
-import org.firstinspires.ftc.teamcode.Utils.Point;
-import java.util.ArrayList;
-import java.util.Arrays;
+
+import org.firstinspires.ftc.teamcode.V1.Base;
+import org.firstinspires.ftc.teamcode.V1.Modules.Camera.Camera;
 
 @Autonomous(name = "RGB_ColorThresh", group = "Tests")
-public class RGB_ColorThresh {
+public class RGB_ColorThresh extends Base {
 
     @Override
     public void runOpMode() throws InterruptedException {

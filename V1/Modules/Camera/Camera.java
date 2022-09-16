@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
 import org.firstinspires.ftc.teamcode.V1.Modules.Camera.Pipelines.Helpers.VisionObject;
 import org.firstinspires.ftc.teamcode.V1.Modules.Camera.Pipelines.auto_floodfill_detection;
-import org.firstinspires.ftc.teamcode.WebCam.Pipelines.rectangle_thresholder_pipeline;
+import org.firstinspires.ftc.teamcode.V1.Modules.Camera.Pipelines.rectangle_thresholder_pipeline;
 import org.openftc.easyopencv.OpenCvCamera;
 import org.openftc.easyopencv.OpenCvCameraFactory;
 import org.openftc.easyopencv.OpenCvCameraRotation;
@@ -50,7 +50,7 @@ public class Camera {
         p2 = new auto_floodfill_detection(true, webcam);
     }
 
-    public String getSignalColor(){p1.getOut();}
+    public String getSignalColor(){return p1.getOut();}
     public void switchToFFPipleine() {
         webcam.setPipeline(p2);
     }

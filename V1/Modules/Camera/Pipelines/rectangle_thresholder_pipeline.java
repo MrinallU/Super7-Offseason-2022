@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.WebCam.Pipelines;
+package org.firstinspires.ftc.teamcode.V1.Modules.Camera.Pipelines;
 
 import org.opencv.core.Point;
 import org.openftc.easyopencv.OpenCvPipeline;
@@ -23,6 +23,7 @@ public class rectangle_thresholder_pipeline extends OpenCvPipeline {
 
     private boolean saveImg = false;
     private Mat hsvMat = new Mat();
+    private Mat maskedInputMat = new Mat();
     private Mat binaryMat = new Mat();
     private Point topLeft1 = new Point(10, 0), bottomRight1 = new Point(40, 20); // Analyzed area is constant
 
@@ -65,7 +66,7 @@ public class rectangle_thresholder_pipeline extends OpenCvPipeline {
         winB = thresholdColor(input, lowerBlue, upperBlue);
         winG = thresholdColor(input, lowerGreen, upperGreen);
 
-        best = Math.max(Math.max(winB, winG), winR);
+        double best = Math.max(Math.max(winB, winG), winR);
 
         if(best == winR)
             out = "red";
