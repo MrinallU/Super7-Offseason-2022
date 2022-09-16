@@ -255,7 +255,8 @@ public class Drive extends Base {
     }
 
     public void driveRobotCentric(double drive, double turn, double strafe) {
-        // GM0
+        // https://gm0.org/en/latest/docs/software/tutorials/mecanum-drive.html#robot-centric-final-sample-code
+
         double fRightPow = 0, bRightPow = 0, fLeftPow = 0, bLeftPow = 0;
 
         fLeftPow = -drive + turn - strafe;
