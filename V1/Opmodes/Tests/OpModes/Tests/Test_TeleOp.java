@@ -1,9 +1,9 @@
-package org.firstinspires.ftc.teamcode.Mecanum_2.TeleOP;
+package org.firstinspires.ftc.teamcode.V1.Opmodes.Tests.OpModes.Tests;
 
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-import org.firstinspires.ftc.teamcode.Mecanum_2.Base;
+import org.firstinspires.ftc.teamcode.V1.Base;
 @TeleOp(name = "Test_TeleOp", group = "OdomBot")
 public class Test_TeleOp extends Base {
 
