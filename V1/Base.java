@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.Mecanum_2;
+package org.firstinspires.ftc.teamcode.V1;
 
 import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.hardware.bosch.JustLoggingAccelerationIntegrator;
@@ -10,7 +10,8 @@ import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
-import org.firstinspires.ftc.teamcode.Mecanum_2.Modules.Drive;
+import org.firstinspires.ftc.teamcode.Utils.PathGenerator;
+import org.firstinspires.ftc.teamcode.V1.Modules.Drive;
 import org.firstinspires.ftc.teamcode.Utils.Angle;
 import org.firstinspires.ftc.teamcode.Utils.Motor;
 import org.firstinspires.ftc.teamcode.Utils.Point;
